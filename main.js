@@ -4,6 +4,8 @@ let nombreEl = document.querySelector("#name");
 let movimientoEl = document.querySelector("#movement");
 let ordenEl = document.querySelector("#order");
 let pokeImgEl = document.querySelector("#pokemon-img");
+let typeEl = document.querySelector("#type");
+
 
 let buscarRandomEl = document.querySelector("#buscarRandom");
 let buscarIdEl = document.querySelector("#buscarId");
@@ -26,13 +28,16 @@ function putData(data) {
     let random_num = Math.floor(Math.random() * data.moves.length);
     console.log(data.moves[random_num].move.name)
     movimientoEl.innerHTML = data.moves[random_num].move.name;
+    typeEl.innerHTML = data.types[0].type.name;
     ordenEl.innerHTML = data.id;
     pokeImgEl.src = data.sprites.front_default;
 }
 
 async function buscarId() {
 
-    const id = document.querySelector("#idpoke").value;
+    const id = (document.querySelector("#idpoke").value).toLowerCase();
+
+    console.log(id);
 
     if (id) {
         let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
