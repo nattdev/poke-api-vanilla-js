@@ -54,12 +54,37 @@ let pokeContainer = document.querySelector(".poke-container");
 let pokeLeftFlip = document.querySelector(".poke-left-flip");
 
 pokeContainer.addEventListener("click", openContainer);
+// pokeContainer.addEventListener("click", closeContainer);
 
-let isZoom = false;
+let isOpen = false;
+
+// function openContainer() {
+//     if (pokeContainer.classList.contains('open')) {
+//         pokeContainer.classList.add('close-pokedex');
+//         // pokeLeftFlip.classList.add("close-left-flip");
+//         // pokeContainer.classList.remove('open-pokedex', 'open-left-flip');
+//         // pokeContainer.classList.add('close-pokedex', 'close-left-flip');
+//         console.log("CONTIENE");
+//         pokeContainer.classList.remove('open');
+//     } else {
+//         pokeContainer.classList.add("open");
+//         pokeContainer.classList.add('open-pokedex');
+//         pokeLeftFlip.classList.add("open-left-flip");
+//         // pokeContainer.classList.remove('close-pokedex', 'close-left-flip');
+//     }
+
+// }
+
 
 function openContainer() {
-    pokeContainer.classList.add("open-pokedex");
-    pokeLeftFlip.classList.add("open-left-flip");
+    if (pokeContainer.classList.contains('open')) {
+        pokeContainer.classList.add('close-pokedex');
+        pokeLeftFlip.classList.add('close-left-flip');
+        pokeContainer.classList.remove('open');
+    } else {
+        pokeContainer.classList.remove('close-pokedex');
+        pokeLeftFlip.classList.remove('close-left-flip');
+        pokeContainer.classList.add('open', 'open-pokedex');
+        pokeLeftFlip.classList.add('open-left-flip');
+    }
 }
-
-console.log(habilidadEl.innerHTML);

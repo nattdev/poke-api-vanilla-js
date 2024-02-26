@@ -32,6 +32,7 @@
     left: 0;
     max-width: 384px;
     transition: all 1.5s ease-out;
+    transform-origin: 62% 60%;
 }
 
 @keyframes zoom-animation {
@@ -47,6 +48,10 @@
         background-image: url('./assets/back-pokedx.png');
     }
 
+    60% {
+        background-image: url('./assets/open-back-pokedx.png');
+    }
+
     100% {
         background: url("/assets/open-back-pokedx.png") no-repeat center;
         transform-origin: 71% 82%;
@@ -56,8 +61,37 @@
     }
 }
 
-.poke-left-flip {
-    transform-origin: 62% 60%;
+@keyframes leave-zoom-animation {
+    0% {
+        background-size: 50% 50%;
+    }
+
+    100% {
+        background-size: 30% 30%;
+    }
+}
+
+@keyframes leave-flip-door {
+    0% {
+        background: url("/assets/open-back-pokedx.png") no-repeat center;
+        transform-origin: 71% 82%;
+        background-size: 50% 50%;
+        transform: rotateY(180deg);
+        rotate: 3deg;
+    }
+    50% {
+        background-image: url('./assets/open-back-pokedx.png');
+        transform: rotateY(90deg);
+    }
+
+    60% {
+        background-image: url('./assets/back-pokedx.png');
+    }
+
+    100% {
+        background-image: url('./assets/back-pokedx.png');
+        transform: rotateY(0deg);
+    }
 }
 
 .open-pokedex {
@@ -68,4 +102,12 @@
 .open-left-flip {
     animation: flip-door 2s;
     animation-fill-mode: forwards;
+}
+
+.close-pokedex {
+    animation: leave-zoom-animation 2s;
+}
+
+.close-left-flip {
+    animation: leave-flip-door 2s;
 }
