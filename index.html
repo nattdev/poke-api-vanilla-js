@@ -10,18 +10,21 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Poke-API Vanilla js</h1>
-        <div class="card">
-            <p>Pokemon: <span id="nombre"></span></p>
-            <p>Habilidad: <span id="habilidad"></span></p>
-            <p>Movimiento: <span id="movimiento"></span></p>
-            <p>Orden: <span id="orden"></span></p>
-            <img id="image" src="">
-        </div>
+    <h1>Poke-API Vanilla js</h1>
+    <div class="poke-card">
+        <p>Pokemon: <span id="name"></span></p>
+        <p>Habilidad: <span id="ability"></span></p>
+        <p>Movimiento: <span id="movement"></span></p>
+        <p>Orden: <span id="order"></span></p>
+        <img id="pokemon-img" src="">
         <button id="buscarRandom">Obtener Pokemon Random</button>
         <button id="buscarId" class="second">Obtener Pokemon</button>
         <input id="idpoke" type="text" />
+    </div>
+    <div class="main-container">
+        <div class="poke-container">
+            <div class="poke-left-flip"></div>
+        </div>
     </div>
     <script src="main.js"></script>
 </body>

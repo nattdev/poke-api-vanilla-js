@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-container {
+    display: flex;
+    justify-content: left;
+}
+
+.poke-container {
+    background: url(./assets/front-left-pokedx.png) no-repeat center;
+    width: 100vw;
+    height: 100vh;
+    background-size: 30% 30%;
+    max-width: 384px;
+    position: relative;
+    transition: all 1.5s ease-out;
+}
+
+.poke-left-flip {
+    background: url(./assets/back-pokedx.png) no-repeat center;
+    width: 100vh;
+    height: 100vh;
+    position: absolute;
+    background-size: 30% 30%;
+    top: 0;
+    left: 0;
+    max-width: 384px;
+    transition: all 1.5s ease-out;
+}
+
+@keyframes zoom-animation {
+    100% {
+        background-size: 50% 50%;
+    }
+}
+
+@keyframes flip-door {
+    50% {
+        transform: rotateY(90deg);
+        transform-origin: 65% 82%;
+        background-image: url('./assets/back-pokedx.png');
+    }
+
+    100% {
+        background: url("/assets/open-back-pokedx.png") no-repeat center;
+        transform-origin: 71% 82%;
+        background-size: 50% 50%;
+        transform: rotateY(180deg);
+        rotate: 3deg;
+    }
+}
+
+.poke-left-flip {
+    transform-origin: 62% 60%;
+}
+
+.open-pokedex {
+    animation: zoom-animation 2s;
+    animation-fill-mode: forwards;
+}
+
+.open-left-flip {
+    animation: flip-door 2s;
+    animation-fill-mode: forwards;
+}
