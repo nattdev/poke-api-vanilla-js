@@ -9,42 +9,41 @@
 
 .main-container {
     display: flex;
-    justify-content: left;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .poke-container {
     background: url(./assets/front-left-pokedx.png) no-repeat center;
-    width: 100vw;
-    height: 100vh;
-    background-size: 30% 30%;
-    max-width: 384px;
+    width: 284px;
+    height: 380px;
+    background-size: 70% 70%;
     position: relative;
     transition: all 1.5s ease-out;
 }
 
 .poke-left-flip {
     background: url(./assets/back-pokedx.png) no-repeat center;
-    width: 100vh;
-    height: 100vh;
+    width: 284px;
+    height: 380px;
     position: absolute;
-    background-size: 30% 30%;
+    background-size: 70% 70%;
     top: 0;
     left: 0;
-    max-width: 384px;
     transition: all 1.5s ease-out;
     transform-origin: 62% 60%;
 }
 
 @keyframes zoom-animation {
     100% {
-        background-size: 50% 50%;
+        background-size: 90% 90%;
     }
 }
 
 @keyframes flip-door {
     50% {
         transform: rotateY(90deg);
-        transform-origin: 65% 82%;
+        transform-origin: 84% 87%;
         background-image: url('./assets/back-pokedx.png');
     }
 
@@ -54,31 +53,33 @@
 
     100% {
         background: url("/assets/open-back-pokedx.png") no-repeat center;
-        transform-origin: 71% 82%;
-        background-size: 50% 50%;
+        transform-origin: 88% 87%;
+        background-size: 90% 90%;
         transform: rotateY(180deg);
-        rotate: 3deg;
+        rotate: 5.5deg;
+        
     }
 }
 
 @keyframes leave-zoom-animation {
     0% {
-        background-size: 50% 50%;
+        background-size: 90% 90%;
     }
 
     100% {
-        background-size: 30% 30%;
+        background-size: 70% 70%;
     }
 }
 
 @keyframes leave-flip-door {
     0% {
         background: url("/assets/open-back-pokedx.png") no-repeat center;
-        transform-origin: 71% 82%;
-        background-size: 50% 50%;
+        transform-origin: 88% 87%;
+        background-size: 90% 90%;
         transform: rotateY(180deg);
-        rotate: 3deg;
+        rotate: 6deg;
     }
+
     50% {
         background-image: url('./assets/open-back-pokedx.png');
         transform: rotateY(90deg);
@@ -90,17 +91,18 @@
 
     100% {
         background-image: url('./assets/back-pokedx.png');
+        transform-origin: 80% 60%;
         transform: rotateY(0deg);
     }
 }
 
 .open-pokedex {
-    animation: zoom-animation 2s;
+    animation: zoom-animation 2.5s;
     animation-fill-mode: forwards;
 }
 
 .open-left-flip {
-    animation: flip-door 2s;
+    animation: flip-door 2.5s;
     animation-fill-mode: forwards;
 }
 
@@ -110,4 +112,39 @@
 
 .close-left-flip {
     animation: leave-flip-door 2s;
+}
+
+.title {
+    text-align: center;
+    padding: 1rem;
+}
+
+.poke-card {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    border: 5px solid #efe30a;
+    width: 50%;
+    border-radius: 20px;
+    top: 50%;
+    margin-left: 1rem;
+    padding: 0.5rem 0;
+
+    p {
+        padding: 0.5rem;
+    }
+
+    button {
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+
+}
+
+.pokemon-img {
+    position: absolute;
+    top: calc(100% - 242px);
+    left: calc(100% - 197px);
 }
