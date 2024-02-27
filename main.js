@@ -48,8 +48,9 @@ async function buscarId() {
         console.log(data);
         habilidad = data.abilities[random_num].ability.name;
         putData(data);
+    } else {
+        console.log(id, "No hay id");
     }
-    console.log(id, "No hay id");
 }
 
 buscarRandomEl.addEventListener("click", buscar);
@@ -57,16 +58,17 @@ buscarIdEl.addEventListener("click", buscarId);
 
 let pokeContainer = document.querySelector(".poke-container");
 let pokeLeftFlip = document.querySelector(".poke-left-flip");
+let disabledCard = document.querySelector(".disabled-card");
 
 pokeContainer.addEventListener("click", openContainer);
 
 function openContainer() {
+    disabledCard.classList.toggle("showing-card");
     if (pokeContainer.classList.contains('open')) {
         pokeContainer.classList.add('close-pokedex');
         pokeLeftFlip.classList.add('close-left-flip');
         pokeContainer.classList.remove('open');
         pokeImgEl.style.display = "none";
-
     } else {
         pokeContainer.classList.remove('close-pokedex');
         pokeLeftFlip.classList.remove('close-left-flip');
