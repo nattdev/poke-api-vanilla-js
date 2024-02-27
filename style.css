@@ -8,11 +8,12 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .main-container {
     display: flex;
+    flex-wrap: wrap-reverse;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -153,10 +154,12 @@ body {
 }
 
 .poke-card {
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 50%;
+    min-width: 390px;
     border-radius: 20px;
     top: 50%;
     font-size: 1.3rem;
@@ -164,7 +167,7 @@ body {
     border-radius: 5px;
     box-shadow: 5px 4px 0px 2px #dfdfdf;
     padding: 1.5rem;
-    margin: 1rem;
+    margin: 1.5rem;
     border-top: 8px solid #fee057;
 
     span {
@@ -182,6 +185,7 @@ body {
         margin: 0.5rem;
         border-radius: 12px;
         cursor: pointer;
+        text-align: center;
     }
 
     .random-poke-btn {
@@ -261,4 +265,30 @@ body {
     top: calc(100% - 237px);
     left: calc(100% - 194px);
     display: none;
+}
+
+@media screen and (max-width:1000px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .poke-card {
+        margin-top: 2rem;
+        min-width: 300px;
+        flex-grow: 1;
+        margin-inline: 2rem;
+    }
+}
+
+@media screen and (max-width:460px) {
+    html {
+        font-size: 12px;
+    }
+
+    .id-poke::placeholder {
+        font-size: 1rem;
+        vertical-align: middle;
+    }
 }
