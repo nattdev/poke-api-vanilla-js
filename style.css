@@ -24,6 +24,7 @@ body {
     background-size: 70% 70%;
     position: relative;
     transition: all 1.5s ease-out;
+    cursor: pointer;
 }
 
 .poke-left-flip {
@@ -154,15 +155,84 @@ body {
     button {
         padding: 0.5rem;
         margin: 0.5rem;
+        border-radius: 12px;
+        cursor: pointer;
     }
+
+    .random-poke-btn {
+        background-image: linear-gradient(45deg, #00ff67, #00bfff, #be0202, #e6bb0e, #fff900);
+        color: #fff;
+        font-weight: bold;
+        font-size: 1rem;
+        letter-spacing: 0.05rem;
+        z-index: 1;
+        position: relative;
+        margin-bottom: 1.5rem;
+        height: 3rem;
+        width: 70%;
+        transition: transform 0.5s;
+        align-self: center;
+        border: 2px dashed #fdfdfd;
+    }
+
+    .random-poke-btn::before {
+        content: "";
+        border-radius: 12px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(135deg, #00ff67, #00bfff, #be0202, #e6bb0e, #fff900);
+        transition: opacity 0.5s linear, transform 0.5s linear;
+        z-index: -1;
+        opacity: 0;
+        border: 1px dashed #fdfdfd;
+    }
+
+    .random-poke-btn:hover::before {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+
+    .random-poke-btn:hover {
+        transform: scale(1.02);
+    }
+
+    .find-poke-container {
+        /* outline: 2px solid #fee057; */
+        display: flex;
+        border-radius: 12px;
+        background-color: #fafafa;
+        padding: 1rem;
+    }
+
+    .find-poke-btn {
+        background: #fee057;
+        color: #0f0f0f;
+        height: 4rem;
+        width: 50%;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    input.id-poke {
+        border: 1px solid #dfdfdf;
+        margin: 0.5rem;
+        text-align: center;
+        font-size: 1.4rem;
+        width: 50%;
+        border-radius: 12px;
+    }
+
 
 }
 
 .pokemon-img {
-    width: 107px;
-    height: 80px;
+    max-width: 107px;
+    max-height: 80px;
     position: absolute;
     top: calc(100% - 237px);
-    left: calc(100% - 208px);
+    left: calc(100% - 194px);
     display: none;
 }
