@@ -5,7 +5,7 @@ let movimientoEl = document.querySelector("#movement");
 let ordenEl = document.querySelector("#order");
 let pokeImgEl = document.querySelector("#pokemon-img");
 let typeEl = document.querySelector("#type");
-
+let pokeAudioEl = document.querySelector("#pokemon-audio");
 
 let buscarRandomEl = document.querySelector("#buscarRandom");
 let buscarIdEl = document.querySelector("#buscarId");
@@ -31,6 +31,8 @@ function putData(data) {
     typeEl.innerHTML = data.types[0].type.name;
     ordenEl.innerHTML = data.id;
     pokeImgEl.src = data.sprites.front_default;
+    pokeAudioEl.src = `./assets/cries/${data.id}.ogg`
+    pokeAudioEl.play();
 }
 
 async function buscarId() {
