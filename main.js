@@ -1,4 +1,3 @@
-
 let habilidadEl = document.querySelector("#ability");
 let nombreEl = document.querySelector("#name");
 let movimientoEl = document.querySelector("#movement");
@@ -10,6 +9,10 @@ let pokeAudioEl = document.querySelector("#pokemon-audio");
 let buscarRandomEl = document.querySelector("#buscarRandom");
 let buscarIdEl = document.querySelector("#buscarId");
 
+let favIcon = document.querySelector("#fav-icon");
+
+let actualData = [];
+
 async function buscar() {
     let random_id = Math.floor(Math.random() * 150);
     console.log(random_id);
@@ -20,6 +23,8 @@ async function buscar() {
     console.log(data);
     habilidad = data.abilities[1].ability.name;
     putData(data);
+    actualData = data;
+    console.log(actualData, "actual");
 }
 
 function putData(data) {
@@ -50,6 +55,7 @@ async function buscarId() {
         console.log(data);
         habilidad = data.abilities[random_num].ability.name;
         putData(data);
+        actualData = data;
     } else {
         console.log(id, "No hay id");
     }
@@ -81,4 +87,50 @@ function openContainer() {
         }, 1800);
     }
 }
+
+
+const favContainer = document.getElementById('favorites-container');
+
+favIcon.addEventListener("click", handleAddFavorites);
+
+let favorites = [];
+
+
+function handleAddFavorites() {
+    if (actualData.length !== 0) {
+        const isStore = favorites.some(pokemon => pokemon.id === actualData.id);
+
+        if (!isStore) {
+            console.log(actualData, "actual")
+            console.log("pusheado");
+            favorites.push(actualData);
+            addFavorite();
+        }
+        console.log("test");
+        console.log(favorites);
+    }
+
+}
+
+function addFavorite() {
+    const li = document.createElement('li');
+    const nameParagraph = document.createElement('div');
+    nameParagraph.classList.add('nameParagraph');
+    const orderParagraph = document.createElement('div');
+    orderParagraph.classList.add('orderParagraph');
+    const img = document.createElement('img');
+
+    nameParagraph.innerHTML = `${actualData.name}`;
+    orderParagraph.innerHTML = `${actualData.order}`;
+
+    favContainer.appendChild(li);
+
+    img.src = actualData.sprites.front_default;
+
+    li.appendChild(img);
+    li.appendChild(nameParagraph);
+    li.appendChild(orderParagraph);
+    
+}
+
 
