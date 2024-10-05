@@ -133,6 +133,7 @@ body {
 .open-pokedex {
     animation: zoom-animation 2.5s;
     animation-fill-mode: forwards;
+    scale: 1.2;
 }
 
 .open-left-flip {
@@ -191,6 +192,20 @@ body {
         border-radius: 12px;
         cursor: pointer;
         text-align: center;
+    }
+
+    .favorite-icon {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 1rem;
+        fill: #d2d2d2;
+    }
+
+    .favorite-icon.active {
+        fill: #e6bb0e;
     }
 
     .random-poke-btn {
@@ -270,6 +285,35 @@ body {
     top: calc(100% - 237px);
     left: calc(100% - 194px);
     display: none;
+    scale: 1.4;
+}
+
+.favorites-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+
+    li {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        border: 3px solid #fee057;
+        border-radius: 10px;
+        margin: 0.5rem;
+        padding: 1.2rem;
+    }
+
+    .nameParagraph {
+        text-transform: capitalize;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    img {
+        scale: 1.2;
+    }
 }
 
 @media screen and (max-width:1000px) {
@@ -285,12 +329,16 @@ body {
         flex-grow: 1;
         margin-inline: 2rem;
     }
+        .open-pokedex {
+        scale: 1;
+    }
 }
 
 @media screen and (max-width:460px) {
     html {
         font-size: 12px;
     }
+
     .id-poke::placeholder {
         font-size: 1rem;
         vertical-align: middle;
@@ -310,7 +358,7 @@ body {
             margin-top: 0.8rem;
             height: auto;
         }
-        
+
         p {
             padding: 0.3rem;
         }
