@@ -23,7 +23,7 @@ async function buscar() {
 }
 
 function putData(data) {
-    habilidadEl.innerHTML = data.abilities[1].ability.name;
+    habilidadEl.innerHTML = data.abilities[0].ability.name;
     nombreEl.innerHTML = data.name;
     let random_num = Math.floor(Math.random() * data.moves.length);
     movimientoEl.innerHTML = data.moves[random_num].move.name;
