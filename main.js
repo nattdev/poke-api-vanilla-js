@@ -15,23 +15,17 @@ let actualData = [];
 
 async function buscar() {
     let random_id = Math.floor(Math.random() * 150);
-    console.log(random_id);
     let url = `https://pokeapi.co/api/v2/pokemon/${random_id}`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data.name);
-    console.log(data);
-    habilidad = data.abilities[1].ability.name;
     putData(data);
     actualData = data;
-    console.log(actualData, "actual");
 }
 
 function putData(data) {
-    habilidadEl.innerHTML = habilidad;
+    habilidadEl.innerHTML = data.abilities[1].ability.name;
     nombreEl.innerHTML = data.name;
     let random_num = Math.floor(Math.random() * data.moves.length);
-    console.log(data.moves[random_num].move.name)
     movimientoEl.innerHTML = data.moves[random_num].move.name;
     typeEl.innerHTML = data.types[0].type.name;
     ordenEl.innerHTML = data.id;
@@ -44,16 +38,10 @@ async function buscarId() {
 
     const id = (document.querySelector("#idpoke").value).toLowerCase();
 
-    console.log(id);
-
     if (id) {
         let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
         const response = await fetch(url);
         const data = await response.json();
-        let random_num = Math.floor(Math.random() * data.abilities.length);
-        console.log(data.name);
-        console.log(data);
-        habilidad = data.abilities[random_num].ability.name;
         putData(data);
         actualData = data;
     } else {
@@ -101,13 +89,9 @@ function handleAddFavorites() {
         const isStore = favorites.some(pokemon => pokemon.id === actualData.id);
 
         if (!isStore) {
-            console.log(actualData, "actual")
-            console.log("pusheado");
             favorites.push(actualData);
             addFavorite();
         }
-        console.log("test");
-        console.log(favorites);
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
