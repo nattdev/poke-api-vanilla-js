@@ -204,8 +204,9 @@ body {
         fill: #d2d2d2;
     }
 
-    .favorite-icon.active {
+    .favorite-icon:hover {
         fill: #e6bb0e;
+        cursor: pointer;
     }
 
     .random-poke-btn {
