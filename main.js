@@ -106,7 +106,7 @@ function addFavorite() {
     const img = document.createElement('img');
 
     nameParagraph.innerHTML = `${actualData.name}`;
-    orderParagraph.innerHTML = `${actualData.order}`;
+    orderParagraph.innerHTML = `${actualData.id}`;
 
     favContainer.appendChild(li);
 
