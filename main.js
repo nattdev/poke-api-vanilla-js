@@ -108,6 +108,7 @@ function handleAddFavorites() {
         }
         console.log("test");
         console.log(favorites);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
 }
@@ -130,7 +131,33 @@ function addFavorite() {
     li.appendChild(img);
     li.appendChild(nameParagraph);
     li.appendChild(orderParagraph);
-    
 }
 
+function renderFavorites() {
 
+    const storageFavorites = JSON.parse(localStorage.getItem('favorites'));
+
+    if (storageFavorites) {
+        storageFavorites.forEach(favorite => {
+            const li = document.createElement('li');
+            const nameParagraph = document.createElement('div');
+            nameParagraph.classList.add('nameParagraph');
+            const orderParagraph = document.createElement('div');
+            orderParagraph.classList.add('orderParagraph');
+            const img = document.createElement('img');
+
+            nameParagraph.innerHTML = `${favorite.name}`;
+            orderParagraph.innerHTML = `${favorite.order}`;
+
+            favContainer.appendChild(li);
+
+            img.src = favorite.sprites.front_default;
+
+            li.appendChild(img);
+            li.appendChild(nameParagraph);
+            li.appendChild(orderParagraph);
+        });
+    }
+}
+
+renderFavorites();
