@@ -360,6 +360,10 @@ body {
             height: auto;
         }
 
+        .favorite-icon {
+            top: 58px;
+        }
+
         p {
             padding: 0.3rem;
         }
